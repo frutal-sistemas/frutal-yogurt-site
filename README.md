@@ -1,1 +1,1 @@
-# Sitio mejorado de Frutal Yogurt con animaciones modernas
+# Frutal Yogurt Moderno - Sitio tipo Ice Cream Parlor

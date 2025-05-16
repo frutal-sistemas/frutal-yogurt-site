@@ -1,93 +1,48 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import YogurtHero from "/public/hero-yogurt.jpg"
+import HeroBg from "/public/hero-yogurt.jpg"
+import { LucideIceCream, LucidePhone, LucideMapPin } from "lucide-react"
 
 export default function Home() {
   return (
-    <main className="bg-gradient-to-b from-pink-50 to-yellow-50 font-sans text-gray-800">
-      <header className="relative h-[70vh] w-full overflow-hidden">
-        <Image src={YogurtHero} layout="fill" objectFit="cover" alt="Frutal Yogurt" priority />
-        <div className="absolute inset-0 bg-pink-900 bg-opacity-50 flex items-center justify-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-white"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold drop-shadow-lg">Frutal Yogurt</h1>
-            <p className="mt-4 text-xl md:text-2xl">Delicias frutales para toda la familia 🍓🍦</p>
-          </motion.div>
+    <main className="bg-white text-gray-800 font-sans">
+      <header className="relative h-screen">
+        <Image src={HeroBg} layout="fill" objectFit="cover" alt="Frutal Yogurt Hero" priority />
+        <div className="absolute inset-0 bg-pink-900 bg-opacity-60 flex flex-col items-center justify-center text-white text-center px-6">
+          <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-5xl font-extrabold drop-shadow-lg">Frutal Yogurt</motion.h1>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-4 text-xl">Donde la fruta se vuelve felicidad 🍓🍦</motion.p>
         </div>
       </header>
 
-      <section className="p-8 text-center">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-3xl font-semibold text-pink-800 mb-6"
-        >
-          Nuestros Productos Estrella
-        </motion.h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {["Nieve de Yogurt", "Smoothies", "Elote", "Cono", "Ricco Frutal", "Remolino", "Yogurt Mix", "Frappe"].map((p, i) => (
-            <motion.div
-              key={p}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-transform duration-300 hover:scale-105"
-            >
-              <h3 className="text-lg font-medium text-pink-700">{p}</h3>
-              <p className="text-sm text-gray-500 mt-2">¡Pruébalo y querrás más!</p>
+      <section className="py-16 px-6 bg-yellow-50 text-center">
+        <h2 className="text-4xl font-bold text-pink-700 mb-8">Nuestros Productos</h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {['Nieve de Yogurt', 'Smoothies', 'Cono', 'Elote'].map((item, idx) => (
+            <motion.div key={idx} whileHover={{ scale: 1.05 }} className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+              <LucideIceCream className="text-pink-600 w-10 h-10 mx-auto mb-4" />
+              <h3 className="font-semibold text-lg text-pink-700">{item}</h3>
+              <p className="text-sm text-gray-500 mt-2">Sabor auténtico que te hará sonreír.</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      <section className="bg-pink-50 py-12 px-8">
-        <motion.div
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl font-semibold text-center text-pink-800 mb-6">Sobre Nosotros</h2>
-          <div className="max-w-4xl mx-auto space-y-4 text-center">
-            <p><strong>Misión:</strong> Crear momentos de felicidad con productos de la más alta calidad y un servicio excepcional.</p>
-            <p><strong>Visión:</strong> Ser una franquicia reconocida a nivel nacional por nuestra innovación y calidad.</p>
-            <p><strong>Valores:</strong> Compromiso, Servicio, Honestidad, Calidad, Respeto, Trabajo en equipo, Asertividad.</p>
+      <section className="py-16 px-6 bg-white text-center">
+        <h2 className="text-4xl font-bold text-pink-800 mb-6">Visítanos</h2>
+        <div className="max-w-2xl mx-auto space-y-4 text-lg">
+          <div className="flex items-center justify-center gap-3 text-pink-700">
+            <LucidePhone className="w-6 h-6" />
+            <span>20-89-52-85 | 81-33-27-72</span>
           </div>
-        </motion.div>
-      </section>
-
-      <section className="p-8 text-center bg-yellow-50">
-        <h2 className="text-3xl font-semibold text-pink-800 mb-4">Próximos Eventos</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 bg-white shadow rounded transition">
-            <h3 className="font-bold text-lg text-pink-700">Septiembre</h3>
-            <p>Ven y disfruta de nuestras promociones en las fiestas patrias.</p>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 bg-white shadow rounded transition">
-            <h3 className="font-bold text-lg text-pink-700">Octubre</h3>
-            <p>Descubre nuevos sabores como Cristóbal Colón descubrió América.</p>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 bg-white shadow rounded transition">
-            <h3 className="font-bold text-lg text-pink-700">Noviembre</h3>
-            <p>¡Con nuestras promociones hasta los muertos revivirán!</p>
-          </motion.div>
+          <div className="flex items-center justify-center gap-3 text-pink-700">
+            <LucideMapPin className="w-6 h-6" />
+            <span>Monte Olimpo #1106, Col. Balcones de las Puentes, San Nicolás de los Garza, N.L.</span>
+          </div>
         </div>
       </section>
 
-      <section className="bg-pink-100 py-12 text-center">
-        <h2 className="text-3xl font-semibold text-pink-900 mb-4">Contáctanos</h2>
-        <p>📞 20-89-52-85 | 81-33-27-72</p>
-        <p>📍 Monte Olimpo #1106, Col. Balcones de las Puentes, San Nicolás de los Garza, N.L.</p>
-      </section>
-
-      <footer className="bg-pink-900 text-white py-4 text-center">
+      <footer className="bg-pink-900 text-white py-6 text-center">
         <p>&copy; 2025 Frutal Yogurt. Todos los derechos reservados.</p>
       </footer>
     </main>
