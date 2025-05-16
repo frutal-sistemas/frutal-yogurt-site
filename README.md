@@ -1,2 +1,1 @@
-# Frutal Yogurt
-Sitio web moderno con Next.js y TailwindCSS.
+# Sitio mejorado de Frutal Yogurt con animaciones modernas
