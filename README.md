@@ -1,2 +1,2 @@
 # Frutal Yogurt
-Sitio creado con Next.js y TailwindCSS.
+Sitio web moderno con Next.js y TailwindCSS.
